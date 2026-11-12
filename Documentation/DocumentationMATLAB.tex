@@ -46,7 +46,8 @@
 %==========================================================================
 \section{Overview}
 %==========================================================================
-This code visualizes \emph{mixed} quantum states of two or three qubits with
+This 
+ visualizes \emph{mixed} quantum states of two or three qubits with
 the BEADS representation, which extends the BEADS representation of pure
 states. A mixed state is first decomposed into an ensemble of pure states
 whose total entanglement (or connected correlation) is minimal. The BEADS of
@@ -78,15 +79,15 @@ Section~\ref{sec:app}.
 \toprule
 Directory & Content \\
 \midrule
-\code{code/visualization} & the two user functions and all plotting routines \\
-\code{code/helper_functions} & bead calculation and structure analysis (back end) \\
-\code{code/optimizations} & optimization routines (back end) \\
-\code{code/cost_functions} & cost functions of the optimizations (back end) \\
-\code{code/analysis_functions} & entanglement and information measures (back end) \\
-\code{code/execution_files} & scripts which load the spherical harmonics and the Pauli basis \\
-\code{code/code_resources} & data files (operator bases, scalings, color maps) \\
-\code{code/third_party} & third-party code (\code{tight_subplot}) \\
-\code{app} & graphical app \code{GeneralizedBEADSApp} (Section~\ref{sec:app}) \\
+\code{Code/visualization} & the two user functions and all plotting routines \\
+\code{Code/helper_functions} & bead calculation and structure analysis (back end) \\
+\code{Code/optimizations} & optimization routines (back end) \\
+\code{Code/cost_functions} & cost functions of the optimizations (back end) \\
+\code{Code/analysis_functions} & entanglement and information measures (back end) \\
+\code{Code/execution_files} & scripts which load the spherical harmonics and the Pauli basis \\
+\code{Code/code_resources} & data files (operator bases, scalings, color maps) \\
+\code{Code/third_party} & third-party code (\code{tight_subplot}) \\
+\code{App} & graphical app \code{GeneralizedBEADSApp} (Section~\ref{sec:app}) \\
 \code{Documentation} & this document \\
 \code{Tests} & example calls (\code{Tests.m}) \\
 \bottomrule
@@ -97,7 +98,7 @@ Directory & Content \\
 Add the code directory including all subdirectories to the MATLAB path, for
 example from the repository root:
 \begin{lstlisting}
-addpath(genpath("code"));
+addpath(genpath("Code"));
 \end{lstlisting}
 All subdirectories must be on the path, because several functions load the
 data files in \code{code_resources} by file name and call the scripts in
@@ -144,23 +145,30 @@ expansion:
         which factorize into products of lower-order expectation values are
         removed.
   \item[C] compound correlation function, $C = T - E$.
+   \item[M] quantum mutual information (total-correlation-based) structure of the density operator
+        where the reducible components of $n$-partite correlation functions
+        have been subtracted.
   \item[$\Sigma$ (Sigma)] separable structure of the state: the compound part
         without the contributions that merely reflect products of local
         expectation values, i.e., the genuinely correlation-based separable
         structure.
-  \item[M] mutual-information structure: the total correlation function
-        where the reducible components of $n$-partite correlation functions
-        have been subtracted.
-  \item[\texorpdfstring{$\Sigma_{\mathrm{Cl}}$}{Sigma\_Cl}] classical part
-        of $\Sigma$, obtained by a projective measurement of a target qubit
-        with optimized projectors (the projectors for which the information
-        about the remaining subsystem is maximal).
+        
+ \item[\texorpdfstring{$M_{\mathrm{Cl}}$}{M\_Cl}] classical part of M,
+        obtained by a projective measurement of a target qubit
+        with optimized projectors (the projectors for which the conditional entropy of the unmeasured subsystem is minimized).
+        
+   \item[\texorpdfstring{$E_{\mathrm{Cl}}$}{Sigma\_Cl}] classically accessible part
+        of $E$ obtained using the same projectors
+    
+  \item[\texorpdfstring{$\Sigma_{\mathrm{Cl}}$}{Sigma\_Cl}] classically accessible part
+        of $\Sigma$ obtained using the same projectors
+        
+    \item[D] nonclassical correlation structure, $M - M_{\mathrm{Cl}}$ 
+     \item[\texorpdfstring{$E_{\mathrm{D}}$}{E\_D}] nonclassical part
+        of $E$, $E - E_{\mathrm{Cl}}$.     
   \item[\texorpdfstring{$\Sigma_{\mathrm{D}}$}{Sigma\_D}] nonclassical part
         of $\Sigma$, $\Sigma - \Sigma_{\mathrm{Cl}}$.
-  \item[\texorpdfstring{$M_{\mathrm{Cl}}$}{M\_Cl}] classical part of M,
-        i.e., M projected with the same projectors.
-  \item[D] nonclassical correlations, $M - M_{\mathrm{Cl}}$ (colored by the
-        corresponding differences of the connected and separable parts).
+  
 \end{description}
 
 \subsection{Beads and their arrangement}
@@ -219,14 +227,16 @@ Table~\ref{tab:beadtypes}.
 Bead type & Meaning \\
 \midrule
 \code{"T"} & total correlation function \\
-\code{"E"} & connected (entanglement-based) correlation function \\
+\code{"E"} & entangling structure correlation function \\
+\code{"E_Cl"} & classically accessible part of entangling structure \\
+\code{"E_D"} & nonclassical part of entangling structure \\
 \code{"C"} & compound correlation function \\
 \code{"Sigma"} & separable structure \\
 \code{"Sigma_Cl"} & classical part of the separable structure \\
 \code{"Sigma_D"} & nonclassical part of the separable structure \\
-\code{"M"} & mutual-information structure \\
-\code{"M_Cl"} & classical part of the mutual-information structure \\
-\code{"D"} & nonclassical correlations, M minus classical M \\
+\code{"M"} & total correlation structure \\
+\code{"M_Cl"} & classical correlation structure \\
+\code{"D"} & nonclassical correlation structure \\
 \bottomrule
 \end{tabular}
 \caption{Bead types for the option \code{BeadTypes}.}
@@ -324,7 +334,7 @@ the cast of vectors into projectors and the validation of the density operator
 are performed each time the function handle is evaluated.
 
 \subsection{Optional inputs}
-\begin{longtable}{@{}p{3.3cm}p{3.2cm}p{8.5cm}@{}}
+\begin{longtable}{@{}p{3.6cm}p{3.6cm}p{7.8cm}@{}}
 \toprule
 Name & Default & Description \\
 \midrule
@@ -453,16 +463,18 @@ state. One figure is created for every requested bead type.
         in front of the file extension, i.e., the figures are saved as
         \code{<Path>_<BeadType>.<ext>}.
 \end{description}
-
+\pagebreak
 \subsection{Optional inputs}
-\begin{longtable}{@{}p{3.3cm}p{3.6cm}p{8.1cm}@{}}
+\begin{longtable}{@{}m{3.6cm}p{4cm}p{7.4cm}@{}}
 \toprule
 Name & Default & Description \\
 \midrule
 \endhead
 \code{ParamValues} & \code{0:0.2:1} & parameter values for which the states
   are computed and plotted. \\
-\code{BeadTypes} & \code{["M","T","E","C","Sigma","Sigma_Cl","Sigma_D","D","M_Cl"]} &
+\code{BeadTypes} &
+\shortstack[l]{ \code{["M","T","E","C",} \\ \code{"Sigma","Sigma_Cl",} \\
+\code{"Sigma_D","D","M_Cl"]}} &
   bead types, one figure per type (Table~\ref{tab:beadtypes}). \\
 \code{Id} & \code{false} & draw the identity bead. \\
 \code{Parameter} & \code{"z"} & name of the parameter, given without dollar
@@ -506,18 +518,18 @@ and \code{WernerStack_Sigma_Cl.png}.
 \section{Graphical app}
 \label{sec:app}
 %==========================================================================
-The app \code{GeneralizedBEADSApp} (directory \code{app}) is a graphical front
+The app \code{GeneralizedBEADSApp} (directory \code{App}) is a graphical front
 end for \code{visualize} and \code{stacked_plot}. It only collects the inputs,
 calls the two functions and displays the figure files which were created; no
-file in \code{code} is modified.
+file in \code{Code} is modified.
 
 \subsection{Starting the app}
-Make the directory \code{app} the current folder (or add it to the path) and
+Make the directory \code{App} the current folder (or add it to the path) and
 run
 \begin{lstlisting}
 GeneralizedBEADSApp
 \end{lstlisting}
-The directory \code{code} including all subdirectories is added to the path
+The directory \code{Code} including all subdirectories is added to the path
 automatically. The app is implemented as a \code{matlab.apps.AppBase} class
 and runs inside MATLAB on all platforms (MATLAB R2020b or newer).
 
@@ -626,10 +638,10 @@ file.
   \item \code{opt_ent_formation} computes the pure state decomposition with
         optimized entanglement of formation.
   \item \code{GetBeads2Qubits} computes all requested beads.
-  \item \code{visualize2_complete_view} (overview),
+  \item \code{visualize2_complete_view} (overview),\\
         \code{visualize2_complete_detailed} (detailed overview, option
-        \code{Detailed}) or
-        \code{visualize2_universal} (individual bead types) plots the beads;
+        \code{Detailed}) or\\
+        \code{visualize2_universal} (individual bead types) plots the beads;\\
         \code{visualize_purestates2} plots the pure states.
 \end{enumerate}
 \paragraph{\code{visualize}, three qubits.}
@@ -646,7 +658,7 @@ file.
 function then draws the stacked figure itself for each bead type.
 
 \subsection{Visualization (\texttt{code/visualization})}
-\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\begin{longtable}{@{}p{5.5cm}p{9.5cm}@{}}
 \toprule
 Function & Purpose \\
 \midrule
@@ -668,7 +680,7 @@ Function & Purpose \\
 \end{longtable}
 
 \subsection{Bead calculation (\texttt{code/helper\_functions})}
-\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\begin{longtable}{@{}p{5.5cm}p{9.5cm}@{}}
 \toprule
 Function & Purpose \\
 \midrule
@@ -701,7 +713,7 @@ Function & Purpose \\
 \end{longtable}
 
 \subsection{Mathematical and geometric helpers (\texttt{code/helper\_functions})}
-\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\begin{longtable}{@{}p{5.5cm}p{9.5cm}@{}}
 \toprule
 Function & Purpose \\
 \midrule
@@ -727,7 +739,7 @@ Function & Purpose \\
 \end{longtable}
 
 \subsection{Optimizations (\texttt{code/optimizations})}
-\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\begin{longtable}{@{}p{5.5cm}p{9.5cm}@{}}
 \toprule
 Function & Purpose \\
 \midrule
@@ -757,7 +769,7 @@ Function & Purpose \\
 \end{longtable}
 
 \subsection{Cost functions (\texttt{code/cost\_functions})}
-\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\begin{longtable}{@{}p{5.5cm}p{9.5cm}@{}}
 \toprule
 Function & Purpose \\
 \midrule
@@ -786,7 +798,7 @@ Function & Purpose \\
 \end{longtable}
 
 \subsection{Analysis functions (\texttt{code/analysis\_functions})}
-\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\begin{longtable}{@{}p{5.5cm}p{9.5cm}@{}}
 \toprule
 Function & Purpose \\
 \midrule
