@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [EoF, States] = opt_ent_formation(DensityOp, Padd, PaddVectors, Caratheodory)
 
     %!!! Optimization function for finding the pure state decomposition of

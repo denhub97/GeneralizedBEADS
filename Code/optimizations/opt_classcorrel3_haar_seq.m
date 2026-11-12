@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [ClassCorr, P00, P01, P10, P11, P0_1_, P0_2_] = opt_classcorrel3_haar_seq(DensityOpTri, TargetQubits)
 
     %!!! Optimization function for finding the projectors of the measurement

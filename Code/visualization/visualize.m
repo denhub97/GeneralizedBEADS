@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [] = visualize(DensityOpExpr, Path, options)
 
     %!!! Main function for visualizing mixed quantum states of bi- or

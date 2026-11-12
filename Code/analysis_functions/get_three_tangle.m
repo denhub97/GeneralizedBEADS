@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [TangleSum, Tangle12, Tangle13, Tangle23, Tangle123] = get_three_tangle(DensityOp)
 
     %!!! Calculate different tangles of a tripartite pure state

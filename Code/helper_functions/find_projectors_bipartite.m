@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [RhoSigmaCl, RhoMCl, RhoDCl, RhoECl, DeltaRho1, DeltaRho2] = find_projectors_bipartite(DensityOp, RhoSigma, RhoM, RhoConn, TargetQubit, OptStructure, MeasurementDirection)
 
     %!!! Find the single-qubit measurement projectors on the target qubit of

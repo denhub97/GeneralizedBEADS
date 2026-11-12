@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [EntNorm] = cost_connected(DensityOp, Dim)
 
     %!!! Cost function for calculating the connected correlation function

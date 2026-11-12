@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [RedDensityOp] = partial_trace(DensityOp, Subsystem)
 
     %!!! Compute the partial trace of a density operator of a composite

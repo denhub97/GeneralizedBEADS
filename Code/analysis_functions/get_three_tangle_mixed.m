@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [ThreeTangle] = get_three_tangle_mixed(PureStates)
 
     %!!! Compute the convex-roof 3-tangle for a given pure state ensemble

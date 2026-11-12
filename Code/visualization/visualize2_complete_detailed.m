@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [] = visualize2_complete_detailed(Beads, CameraAngle, Id, EntanglementArcs, EntMeasure, EntVal, GridPoints, RadialPlot, Normalize, Path, FontSize, AutoScale, ScaleFactor, CorrelType)
 
     %!!! visualize2_complete_detailed visualizes the BEADS representation of a

@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Cost, RhoSigmaCl, P0_, P1_] = cost_find_projectors(Angles, NormalVector, P0, P1, RhoSigma, TargetQubit, Qubits, OptStructure)
 
     %!!! Cost function for finding the single-qubit projectors on the target

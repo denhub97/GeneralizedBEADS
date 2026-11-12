@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [CondInfo] = calc_conditionalinfo3(DensityOp, P00, P01, P10, P11, TargetQubits)
 
     %!!! Function for calculating the conditional entropy for a joint local

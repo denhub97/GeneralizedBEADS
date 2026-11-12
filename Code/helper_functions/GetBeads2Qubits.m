@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Beads, EntNorm] = GetBeads2Qubits(PureStates, BeadTypes, TargetQubit, GridPoints, OptStructure, MeasurementDirection)
 
     %!!! Compute the spherical function values of all beads

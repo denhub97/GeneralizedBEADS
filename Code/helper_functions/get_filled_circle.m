@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Xr, Yr, Zr] = get_filled_circle(V, r, N)
 
     %!!! Generate the surface coordinates of a filled circle (disk) with

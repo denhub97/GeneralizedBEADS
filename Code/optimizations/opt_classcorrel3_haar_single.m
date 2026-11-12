@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Cost, P0, P1] = opt_classcorrel3_haar_single(DensityOp, TargetQubit)
 
     %!!! Optimization function for finding the projectors of the measurement

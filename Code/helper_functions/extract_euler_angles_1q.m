@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Theta, Phi, Lambda] = extract_euler_angles_1q(U)
 
     %!!! Extract the Euler angles [theta, phi, lambda] of a single-qubit

@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [P0, P1] = get_projectors_pref(RAxis, TargetQubit, N)
 
     %!!! Compute the projectors of a single-qubit measurement along a given

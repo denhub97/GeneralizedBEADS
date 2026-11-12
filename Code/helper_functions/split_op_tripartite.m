@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Op12, Op13, Op23, Op123] = split_op_tripartite(Op)
 
     %!!! Split a 3-qubit operator into its bipartite and the remaining

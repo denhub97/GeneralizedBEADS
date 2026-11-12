@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Concurrence] = get_concurrence(DensityOp)
 
     %!!! Calculate the concurrence of a bipartite density operator

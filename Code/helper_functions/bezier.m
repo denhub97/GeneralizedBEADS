@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Curve] = bezier(Target, ControlPoints, Radius, Color, varargin)
 
     %!!! bezier creates a cubic Bézier curve from 4 control points and

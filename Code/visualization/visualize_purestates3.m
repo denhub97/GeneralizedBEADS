@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [] = visualize_purestates3(PureStates, CameraAngle, BeadType, Id, Lines, Weights, Tangles, EntArcs, GridPoints, Recursive, Path, FontSize)
 
     %!!! visualize_purestates3 visualizes the BEADS representations of all

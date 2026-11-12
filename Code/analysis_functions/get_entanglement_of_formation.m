@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [EoF] = get_entanglement_of_formation(DensityOp)
 
     %!!! Calculate the entanglement of formation of a biaprtite density operator

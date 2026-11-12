@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [EoF, States] = cost_ent_formation(UCoeff, Eigenstates, RankRho, Dim)
 
     %!!! Cost function for minimizing the average entanglement of a pure

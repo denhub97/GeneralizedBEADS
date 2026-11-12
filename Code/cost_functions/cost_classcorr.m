@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Cost, P0, P1] = cost_classcorr(UCoeff, DensityOp, TargetQubit, DimSingleQubit, N)
 
     %!!! Cost function for maximizing the classical correlations of a

@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function U = generate_unitary_haar_1q()
 
     %!!! Generate a Haar-random single-qubit (2x2) unitary matrix, i.e., a

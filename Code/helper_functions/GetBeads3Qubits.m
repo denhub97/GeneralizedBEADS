@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [Beads, EntNorm] = GetBeads3Qubits(PureStates123, PureStates12, PureStates13, PureStates23, BeadTypes, TargetQubits, GridPoints, ClassCorrRecursive, OptStructure, MeasurementDirection)
 
     %!!! Compute the spherical function values of all beads of a 3-qubit

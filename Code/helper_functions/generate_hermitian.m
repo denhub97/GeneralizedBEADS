@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [H] = generate_hermitian(UCoeff, RankRho)
 
     %!!! Generate a Hermitian matrix from a vector of real coefficients.

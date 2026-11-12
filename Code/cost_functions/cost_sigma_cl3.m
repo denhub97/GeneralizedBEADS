@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function[Cost, RhoSigmaCl, P00_, P01_, P10_, P11_] = cost_sigma_cl3(Params, RhoSigma, P00, P01, P10, P11, CorrAng, TargetQubits, OptStructure)
     
     %!!! Cost function for maximizing the overlap between tripartite M_Cl

@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [NVector, Cost, ThetaOpt, PhiOpt] = optPoles(Points)
 
     %!!! Optimization function for finding the pair of antipodal poles on the

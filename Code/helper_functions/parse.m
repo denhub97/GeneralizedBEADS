@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [DensityOp] = parse(DensityOpExpr, options)
 
     %!!! Parse a density operator of a 2-qubit or 3-qubit system and

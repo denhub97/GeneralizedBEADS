@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [TColors] = get_blended_colors(TBead, EBead, CBead, GridPoints, Radial)
 
     %!!! Compute the color data for the T-bead (total correlation) of a

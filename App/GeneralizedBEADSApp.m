@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 classdef GeneralizedBEADSApp < matlab.apps.AppBase
 
     %!!! Graphical user interface for the BEADS visualization of mixed

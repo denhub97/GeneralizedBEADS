@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [VNE] = get_von_neumann_entropy(DensityOp)
 
     %!!! Compute the von Neumann entropy of a given density operator

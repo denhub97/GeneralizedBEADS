@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [ClassCorr, P0, P1] = opt_classcorr_bipartite(DensityOp, TargetQubit)
 
     %!!! Optimization function for finding the projectors of the measurement

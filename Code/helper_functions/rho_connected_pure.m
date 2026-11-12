@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [RhoConn, RhoComp] = rho_connected_pure(DensityOp, Dim)
 
     %!!! Split the density operator of a pure state of a 2-qubit or 3-qubit

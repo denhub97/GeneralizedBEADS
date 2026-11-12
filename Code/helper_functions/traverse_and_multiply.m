@@ -1,3 +1,5 @@
+% Copyright (c) 2025-2026 Dennis Huber, Celina Bräutigam
+% SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
 function [CoeffList] = traverse_and_multiply(CellArray1, CellArray2, CoeffList, DensityOp)
 
     %!!! Recursively traverse two nested cell arrays of identical structure,
