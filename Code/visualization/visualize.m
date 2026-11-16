@@ -66,7 +66,7 @@ function [] = visualize(DensityOpExpr, Path, options)
         Path {mustBeTextScalar}
         options.PureStateVis (1,1) logical = false
         options.BeadTypes {mustBeText} = ["T", "E", "C", "M", "Sigma", ...
-                                          "M_Cl", "Sigma_Cl", "D", "Sigma_D"]
+                                          "M_Cl", "Sigma_Cl", "E_Cl", "D", "Sigma_D", "E_D"]
         options.CameraAngle (1,2) double = [NaN NaN]
         options.GridPoints (1,2) double = [200 400]
         options.TargetQubits (1,:) double = [1, 1, 2, 1, 2]

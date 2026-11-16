@@ -12,7 +12,7 @@ function [] = visualize2_universal(Beads, CameraAngle, BeadType, Id, Entanglemen
     %            CameraAngle: position of the camera / viewpoint
     %            BeadType: the type of correlation function beads (possible:
     %                      "T", "E", "C", "Sigma", "Sigma_Cl", "Sigma_D",
-    %                      "D", "M", "M_Cl")
+    %                      "D", "M", "M_Cl", "E_Cl", "E_D")
     %            Id: specify whether id bead shall be drawn (boolean)
     %            EntanglementArcs: specify whether connector arcs shall be
     %                              drawn (boolean)
@@ -131,9 +131,17 @@ function [] = visualize2_universal(Beads, CameraAngle, BeadType, Id, Entanglemen
             labels = {'Id','$Q_1$','$Q_2$',append('$\Sigma_{Cl}^{(',num2str(targetqubit),')}\{1,2\}_{even}$'), ...
                       append('$\Sigma_{Cl}^{(',num2str(targetqubit),')}\{1,2\}_{odd}$')};
 
+        case "E_Cl"
+            labels = {'Id','$Q_1$','$Q_2$',append('$E_{Cl}^{(',num2str(targetqubit),')}\{1,2\}_{even}$'), ...
+                      append('$E_{Cl}^{(',num2str(targetqubit),')}\{1,2\}_{odd}$')};
+
         case "Sigma_D"
             labels = {'Id','$Q_1$','$Q_2$',append('$\Sigma_{D}^{(',num2str(targetqubit),')}\{1,2\}_{even}$'), ...
                       append('$\Sigma_{D}^{(',num2str(targetqubit),')}\{1,2\}_{odd}$')};
+
+        case "E_D"
+            labels = {'Id','$Q_1$','$Q_2$',append('$E_{D}^{(',num2str(targetqubit),')}\{1,2\}_{even}$'), ...
+                      append('$E_{D}^{(',num2str(targetqubit),')}\{1,2\}_{odd}$')};
 
         case "D"
             labels = {'Id','$Q_1$','$Q_2$',append('$D^{(',num2str(targetqubit),')}\{1,2\}_{even}$'), ...
@@ -199,7 +207,7 @@ function [] = visualize2_universal(Beads, CameraAngle, BeadType, Id, Entanglemen
             beads_C = {id_bead, bead1, bead2, ...
                        bilin_even_C, bilin_odd_C};
 
-        % Connected (entanglement-based) correlation function
+        % Entangling structure
         case "E"
             beads = {id_bead, bead1, bead2, ...
                      bilin_even_E, bilin_odd_E};
@@ -231,8 +239,19 @@ function [] = visualize2_universal(Beads, CameraAngle, BeadType, Id, Entanglemen
             beads_C = {id_bead, bead1, bead2,...
                        bilin_even_Sigma, bilin_odd_Sigma};
 
-        % Correlation functions of separable components of the state
-        % contributing to classical correlation (CMI)
+        % Part of entangling structure contributing to classical
+        % correlation
+        case "E_Cl"
+            beads = {id_bead, bead1, bead2, ...
+                     bilin_even_ECl, bilin_odd_ECl};
+
+            beads_E = {blank, blank, blank, ...
+                       bilin_even_ECl, bilin_odd_ECl};
+
+            beads_C = {id_bead, bead1, bead2, ...
+                       blank, blank};
+
+        % Part of separable structure contributing to classical correlation
         case "Sigma_Cl"
             beads = {id_bead, bead1, bead2, ...
                      bilin_even_SigmaCl, bilin_odd_SigmaCl};
@@ -242,7 +261,18 @@ function [] = visualize2_universal(Beads, CameraAngle, BeadType, Id, Entanglemen
             beads_C = {id_bead, bead1, bead2,...
                        bilin_even_SigmaCl, bilin_odd_SigmaCl};
 
-        % Nonclassical correlations
+        % Nonclassical part of entangling structure
+        case "E_D"
+            beads = {id_bead, bead1, bead2, ...
+                     bilin_even_E-bilin_even_ECl, bilin_odd_E-bilin_odd_ECl};
+
+            beads_E = {blank, blank, blank, ...
+                       bilin_even_E-bilin_even_ECl, bilin_odd_E-bilin_odd_ECl};
+
+            beads_C = {id_bead, bead1, bead2, ...
+                       blank, blank};
+
+        % Nonclassical correlation structure
         case "D"
             beads = {id_bead, bead1, bead2, ...
                      bilin_even_M-bilin_even_MCl, bilin_odd_M-bilin_odd_MCl};

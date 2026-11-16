@@ -46,15 +46,13 @@
 %==========================================================================
 \section{Overview}
 %==========================================================================
-This 
- visualizes \emph{mixed} quantum states of two or three qubits with
-the BEADS representation, which extends the BEADS representation of pure
-states. A mixed state is first decomposed into an ensemble of pure states
+This MATLAB package visualizes \emph{pure and mixed} quantum states of two or three qubits using
+the generalized BEADS representation. A mixed state is first decomposed into an ensemble of pure states
 whose total entanglement (or connected correlation) is minimal. The BEADS of
 the individual pure states are then weighted with their probabilities and
-summed. In addition to the bead types of pure states, the code visualizes the
+summed. In addition to the bead types of pure states, the code visualizes the genuinely correlation-based
 separable structure of the state, its classical and nonclassical parts, and
-the mutual-information structure.
+the total correlation structure.
 
 \paragraph{Only two functions are meant to be used directly.}
 Everything else in the code directory is back end.
@@ -339,7 +337,7 @@ are performed each time the function handle is evaluated.
 Name & Default & Description \\
 \midrule
 \endhead
-\code{BeadTypes} & all nine bead types & string or char (array) with the bead
+\code{BeadTypes} & all eleven bead types & string or char (array) with the bead
   types to plot (Table~\ref{tab:beadtypes}). \\
 \code{PureStateVis} & \code{false} & additionally plot the BEADS of the
   individual pure states of the decomposition. \\
@@ -474,7 +472,7 @@ Name & Default & Description \\
   are computed and plotted. \\
 \code{BeadTypes} &
 \shortstack[l]{ \code{["M","T","E","C",} \\ \code{"Sigma","Sigma_Cl",} \\
-\code{"Sigma_D","D","M_Cl"]}} &
+\code{"Sigma_D","D","M_Cl",} \\ \code{"E_D","E_Cl"]}} &
   bead types, one figure per type (Table~\ref{tab:beadtypes}). \\
 \code{Id} & \code{false} & draw the identity bead. \\
 \code{Parameter} & \code{"z"} & name of the parameter, given without dollar
