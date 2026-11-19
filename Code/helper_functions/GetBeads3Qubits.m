@@ -87,15 +87,15 @@ function [Beads, EntNorm] = GetBeads3Qubits(PureStates123, PureStates12, PureSta
 
     % The separable structure (Sigma beads) is required for the mutual, the
     % separable, and all (non)classical beads
-    NeedSigma = any(ismember(BeadTypes, ["M", "Sigma", "M_Cl", "Sigma_Cl", "D", "Sigma_D"]));
+    NeedSigma = any(ismember(BeadTypes, ["M", "Sigma", "M_Cl", "E_Cl", "Sigma_Cl", "D", "E_D", "Sigma_D"]));
 
     % The measurement projectors and the structures after the measurement
     % are required for the classical beads and the nonclassical beads
-    NeedProj = any(ismember(BeadTypes, ["M_Cl", "Sigma_Cl", "D", "Sigma_D"]));
+    NeedProj = any(ismember(BeadTypes, ["M_Cl", "E_Cl", "Sigma_Cl", "D", "E_D", "Sigma_D"]));
 
     % The mutual structure (M beads) is required for the mutual beads and
     % for the projector analysis
-    NeedM = any(ismember(BeadTypes, ["M", "M_Cl", "Sigma_Cl", "D", "Sigma_D"]));
+    NeedM = any(ismember(BeadTypes, ["M", "M_Cl", "E_Cl", "Sigma_Cl", "D", "E_D", "Sigma_D"]));
 
     % Grid points for the beads
     res_theta = GridPoints(1);

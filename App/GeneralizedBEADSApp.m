@@ -108,7 +108,7 @@ classdef GeneralizedBEADSApp < matlab.apps.AppBase
             app.UIFigure.Name = 'Generalized BEADS';
 
             app.MainGrid = uigridlayout(app.UIFigure, [1 3]);
-            app.MainGrid.ColumnWidth = {340, '1x', 360};
+            app.MainGrid.ColumnWidth = {340, '1x', 380};
             app.MainGrid.RowHeight = {'1x'};
             app.MainGrid.ColumnSpacing = 8;
             app.MainGrid.Padding = [8 8 8 8];
@@ -813,7 +813,7 @@ classdef GeneralizedBEADSApp < matlab.apps.AppBase
             % Only the column width is changed, switching the visibility of
             % the panel with all its controls is slow
             if app.AdvancedButton.Value
-                app.MainGrid.ColumnWidth = {340, '1x', 360};
+                app.MainGrid.ColumnWidth = {340, '1x', 380};
             else
                 app.MainGrid.ColumnWidth = {340, '1x', 0};
             end
@@ -1049,7 +1049,7 @@ function specs = visualizeSpecs()
     %!!! Definitions of the options of visualize: name, control type,
     %    default (for the label), tooltip, and items
 
-    beadTypes = {'T', 'E', 'C', 'M', 'Sigma', 'M_Cl', 'Sigma_Cl', 'D', 'Sigma_D'};
+    beadTypes = {'T', 'E', 'C', 'M', 'Sigma', 'M_Cl', 'E_Cl', 'Sigma_Cl', 'D', 'E_D', 'Sigma_D'};
     specs = [ ...
         makeSpec('BeadTypes', 'multi', 'all', 'Bead types to plot. Nothing checked = all nine bead types.', beadTypes); ...
         makeSpec('SingleView', 'bool', 'false', 'Two qubits only: false = one overview figure with all bead types (BeadTypes is ignored), true = one figure per bead type.', {}); ...

@@ -37,7 +37,7 @@ function [] = visualize2_universal(Beads, CameraAngle, BeadType, Id, Entanglemen
     % Layout data
     label_shift = 0.7;
     label_fontsize = FontSize;
-    tolerance = 1e-2;
+    tolerance = 1e-4;
 
     % The basic beads positions
     beads_positions = [0,-6, 0; % Id
